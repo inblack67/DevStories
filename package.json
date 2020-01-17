@@ -1,0 +1,17 @@
+{
+  "name": "devstories",
+  "version": "1.0.0",
+  "description": "Stories",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "Aman Bhardwaj",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.8.7",
+    "nodemon": "^2.0.2"
+  }
+}
