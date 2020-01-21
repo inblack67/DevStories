@@ -15,5 +15,20 @@ router.get('/google/callback',passport.authenticate('google',{
   res.redirect('/dashboard');
 } );
 
+router.get('/verify', (req,res) =>{      // auth/verify
+  if(req.user)
+  {
+    console.log(req.user) // server restarts we are logged out so be prepared
+  }
+  else
+  {
+    console.log('not auth')
+  }
+});
+
+router.get('/logout', (req,res) =>{      // auth/logout
+  req.logOut();
+  res.redirect('/');
+});
 
 module.exports = router;

@@ -1,6 +1,6 @@
 module.exports = {
 
-  mongoURI: 'mongodb+srv://ryuzaki:<password>@stories-vczfu.mongodb.net/test?retryWrites=true&w=majority',
+  mongoURI: 'mongodb+srv://ryuzaki:watari3@stories-fomyj.mongodb.net/test?retryWrites=true&w=majority',
 
   googleClientID: '808822933577-ncs0obt597fqq2p1f68mba75frv14jgh.apps.googleusercontent.com',
 

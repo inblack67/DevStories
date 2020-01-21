@@ -1,0 +1,16 @@
+<div class="navbar-fixed">
+<nav class="black">
+<div class="container">
+<a href="/stories" class="brand-logo">Dev | Stories</a>
+<ul class="right hide-on-small-only">
+{{#if user}}
+<li><a href="/dashboard">Welcome {{user.firstName}}</a></li>
+<li><a href="/auth/logout"><i class="material-icons left">exit_to_app</i> Logout</a></li>
+<li><a href="/stories/my"><i class="fa fa-user"></i> My Stories</a></li>
+{{else}}
+<li><a class="white-text" href="/stories">Public Stories</a></li>
+{{/if}}
+</ul>
+</div>
+</nav>
+</div>
