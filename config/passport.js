@@ -8,7 +8,7 @@ passport.use(
 new GoogleStrategy({
 clientID: keys.googleClientID,
 clientSecret: keys.googleClientSecret,
-callbackURL: '/auth/google/callback',
+callbackURL: absoluteURI + '/auth/google/callback',
 proxy: true // for heroku (https?)
 },(accessToken, refreshToken, profile, done) => {
 const image = profile.photos[0].value;
