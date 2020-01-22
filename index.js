@@ -6,6 +6,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 
 
+
 // load user model  (register)
 require('./models/User');
 
@@ -16,6 +17,7 @@ require('./config/passport')(passport);
 // load routes
 const auth = require('./routes/auth');
 const index = require('./routes/index');
+const stories = require('./routes/stories');
 
 // get keys
 const keys = require('./config/keys');
@@ -66,6 +68,7 @@ app.use((req,res,next) => {
 // use routes
 app.use('/auth',auth);
 app.use('/',index);
+app.use('/stories',stories);
 
 const port = process.env.PORT || 5000;
 

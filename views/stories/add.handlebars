@@ -1,0 +1,55 @@
+<h1>Add Story</h1>
+<div class="row">
+<form action="/stories" class="col s12" method="POST">
+
+<div class="row">
+<div class="input-field">
+<input type="text" name="title">
+<label for="title">Title</label>
+</div>
+</div>
+
+<div class="row">
+<div class="input-field">
+<select name="status" id="status">
+<option value="public" selected>Public</option>
+<option value="private">Private</option>
+<option value="unpublished">Unpublished</option>
+</select>
+<label for="title">Status</label>
+</div>
+</div>
+
+<div class="row">
+<p>
+<label>
+<input type="checkbox" checked="checked" name="allowComments" />
+
+<span>Allow Comments</span>
+
+</label>
+
+</p>
+
+
+
+
+<label>
+<input type="checkbox" checked="checked" />
+</label>
+
+</div>
+
+<div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">Textarea</label>
+        </div>
+      </div>
+
+
+<input type="submit" value="Save" class="btn btn-large red waves-effect waves-light pulse ">
+
+
+</form>
+</div>
