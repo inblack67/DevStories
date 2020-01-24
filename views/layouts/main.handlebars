@@ -31,7 +31,7 @@
 </div>
 </main>
 
-{{!-- BODY --}}
+{{!-- BODY Ends here --}}
 </body>
 
 <!--Import jQuery before materialize.js-->
@@ -44,9 +44,12 @@
 
 
 <script>
-  M.AutoInit();
-$(document).ready(function () {
+M.AutoInit();   // select list init
 
+$(document).ready(() => {
+
+
+$('.button-collapse').sideNav(); // hamburger stuff
 
 
 });// READY

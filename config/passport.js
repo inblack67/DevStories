@@ -24,7 +24,7 @@ image: image
 
 
 // check for existing user
-User.findOne({
+User.findOne({    // mongoose meth
 googleID: profile.id
 })
 .then((user) => {
