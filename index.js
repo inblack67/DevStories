@@ -1,5 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const methodOverride = require('method-override');
 const passport = require('passport');
 const cookiParser = require('cookie-parser');
 const session = require('express-session');
@@ -7,11 +8,13 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 
+
 // hbs helpers
 const {
   truncate,
   stripTags,
-  formatDate
+  formatDate,
+  select
 } = require('./helpers/hbs');
 
 // load  models  (register)
@@ -32,6 +35,20 @@ const keys = require('./config/keys');
 
 const app = express();
 
+app.use(function(req, res, next) {
+  if (process.env.NODE_ENV === "production") {
+      const reqType = req.headers["x-forwarded-proto"];
+      // if not https redirect to https unless logging in using OAuth
+      if (reqType !== "https") {
+          req.url.indexOf("auth/google") !== -1
+            ? next()
+            : res.redirect("https://" + req.headers.host + req.url);
+      } 
+  } else {
+      next();
+  }
+}); 
+
 // bodyparser middleware
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -50,12 +67,16 @@ useUnifiedTopology: true
 .catch((err) => console.log(err))
 ;
 
+// method-override middleware
+app.use(methodOverride('_method'));
+
 // handlebars middleware
 app.engine('handlebars',exphbs({
   helpers:{
     truncate: truncate,
     formatDate: formatDate,
-    stripTags: stripTags
+    stripTags: stripTags,
+    select
   },
 
   defaultLayout: 'main'
