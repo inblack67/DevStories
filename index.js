@@ -8,7 +8,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 
-
 // hbs helpers
 const {
   truncate,
@@ -34,20 +33,6 @@ const stories = require('./routes/stories');
 const keys = require('./config/keys');
 
 const app = express();
-
-app.use(function(req, res, next) {
-  if (process.env.NODE_ENV === "production") {
-      const reqType = req.headers["x-forwarded-proto"];
-      // if not https redirect to https unless logging in using OAuth
-      if (reqType !== "https") {
-          req.url.indexOf("auth/google") !== -1
-            ? next()
-            : res.redirect("https://" + req.headers.host + req.url);
-      } 
-  } else {
-      next();
-  }
-}); 
 
 // bodyparser middleware
 app.use(bodyParser.urlencoded({extended: false}));
