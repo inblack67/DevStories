@@ -4,8 +4,11 @@ const passport = require('passport');
 
 
 router.get('/google',passport.authenticate('google',{
-  scope: ['profile','email']
 
+  scope: [
+    'https://www.googleapis.com/auth/userinfo.profile',
+    'https://www.googleapis.com/auth/userinfo.email'
+]
   // scope of what we need from user -> his profile and email
 }));
 
