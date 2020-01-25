@@ -4,8 +4,10 @@
 <div class="col s12 m4">
 <div class="card">
 <div class="card-image">
-  <a href="/stories/edit/{{id}}" class="btn-floating halfway-fab red">
-  <i class="material-icons">edit</i>
+  {{#if user}}
+  {{{editIcon user.id ../user.id id}}} 
+  {{!-- we are inside the story loop already so no story.shit --}}
+  {{/if}}
   </a>
 </div>
 
@@ -15,10 +17,10 @@
 <p class="story-text" style="height: 100px;">{{truncate body 100}}</p>
 <br>
 
-{{!-- <div class="chip">
-<img src="{{stories.image}}">
-{{stories.firstName}} {{stories.lastName}}
-</div> --}}
+<div class="chip">
+      <img src="{{user.image}}">
+      <a href="/stories/user/{{user.id}}">{{user.firstName}} {{user.lastName}}</a>
+    </div>
 </div>
 
 <div class="card-action center-align">

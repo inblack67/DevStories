@@ -13,7 +13,8 @@ const {
   truncate,
   stripTags,
   formatDate,
-  select
+  select,
+  editIcon
 } = require('./helpers/hbs');
 
 // load  models  (register)
@@ -61,7 +62,8 @@ app.engine('handlebars',exphbs({
     truncate: truncate,
     formatDate: formatDate,
     stripTags: stripTags,
-    select
+    select,
+    editIcon
   },
 
   defaultLayout: 'main'

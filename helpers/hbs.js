@@ -20,5 +20,22 @@ return moment(date).format(format);
 select: (selected, options) => { 
 return options.fn(this).replace( new RegExp(' value=\"' + selected + '\"'), '$& selected="selected"').replace( new RegExp('>' + selected + '</option>'), ' selected="selected"$&');
 // displays whatever the privacy of the story was, in the edit form
+},
+editIcon: (storyUser, loggedUser, storyId, floating=true) => {
+  if(storyUser == loggedUser)
+  {
+    if(floating)
+    {
+      return `<a href="/stories/edit/${storyId}" class="btn-floating halfway-fab red"><i class="material-icons">edit</i></a>`;
+    }
+    else
+    {
+      return '';
+    }
+  }
+  else
+  {
+    return '';
+  }
 }
 }
